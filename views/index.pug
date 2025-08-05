@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h2 Employee List
+  a(href="/new") Add New Employee
+  table
+    thead
+      tr
+        th Name
+        th Email
+        th ID
+        th Age
+        th Gender
+        th Department
+        th Actions
+    tbody
+      each employee in employees
+        tr
+          td= employee.name
+          td= employee.email
+          td= employee._id
+          td= employee.age
+          td= employee.gender
+          td= employee.department
+          td
+            a(href=`/edit/${employee._id}`) Edit |
+            a(href=`/delete/${employee._id}` onclick="return confirm('Are you sure?')") Delete
